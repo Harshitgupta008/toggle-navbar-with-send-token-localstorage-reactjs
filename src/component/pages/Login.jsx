@@ -7,17 +7,18 @@ const Login = ()=>{
     const navigate = useNavigate();
     const LoginGentoken = ()=>{
         GenrateToken();
+        window.alert("Login successfully")
         navigate("/home")
 
     }
     useEffect(()=>{
-
     },[GenrateToken])
     return (
         <>
             <div style={{ height: "80vh", width: "100%", display:"flex",justifyContent:"center",alignItems:"center" , flexDirection:"column", gap:"15px"}}>
                 <h2>This is Login page</h2>
-                <button onClick={LoginGentoken}>Random Login</button>
+                <h3>Random Login</h3>
+                <button onClick={LoginGentoken}>Login 😜</button>
             </div>
         </>
     )
