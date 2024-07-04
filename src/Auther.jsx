@@ -1,10 +1,14 @@
-import { createContext, useContext } from "react"
+import { createContext, useContext, useState } from "react"
 
 
 export const AuthContext = createContext();
 
 export const Auther = ({ children }) => {
+    const [isToken,setIsToken] = useState(localStorage.getItem("token"));
 
+    const isLoggedIn = !!isToken;
+
+    
     // genrate token or set token for server
     const GenrateToken = () => {
         const randomtoken = "AB8Cabc0D7EFGH1fghijklI2J3KLM5N7OPQRSTUVWXYZdemnopqrstuvwxyz"
@@ -17,10 +21,11 @@ export const Auther = ({ children }) => {
 
     // remove token 
     const RemoveToken = ()=>{
+        setIsToken("");
         return localStorage.removeItem("token");
     }
 
-    return <AuthContext.Provider value={{ GenrateToken, RemoveToken }}>
+    return <AuthContext.Provider value={{ GenrateToken, RemoveToken, isLoggedIn }}>
         {children}
     </AuthContext.Provider>
 }

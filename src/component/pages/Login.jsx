@@ -9,6 +9,7 @@ const Login = ()=>{
         GenrateToken();
         window.alert("Login successfully")
         navigate("/home")
+        window.location.reload();
 
     }
     useEffect(()=>{
